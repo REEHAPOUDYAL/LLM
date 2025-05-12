@@ -4,4 +4,4 @@ This repository consists of 3 projects :
 
 2. **Embedding and Visualization of Tokens via Rest API** This project explores word embedding techniques, specifically TF-IDF, and uses dimensionality reduction for visualization.  It includes a REST API (built with Flask) to serve embedding data.  Additionally, it has a web application that allows users to input words and see their embeddings and nearest neighbors.
 
-3. 
+3. **Text Preprocessing functionality deployed through rest API based web surface**: Implemented basic nlp operations like tokenization , stemming , lemmitization , POS Tag , NER in web interface via Rest Api
