@@ -16,15 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please enter a word.');
             return;
         }
-
-        // Reset UI state
         dataLoadingMessage.style.display = 'block';
         plotLoadingMessage.style.display = 'block';
         resultsContainer.style.display = 'none';
         embeddingPlot.innerHTML = '';
         neighborsOutput.innerHTML = '';
-
-        // Fetch Nearest Neighbors
+        
         fetch(`/nearest_neighbors?word=${encodeURIComponent(word)}`)
             .then(response => {
                 if (!response.ok) {
@@ -45,13 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     neighborsOutput.innerHTML = `<p class="error-message">${data.error}</p>`;
                     return;
                 }
-
-                // Display Neighbors
                 neighborsOutput.innerHTML = `<h3>Nearest Neighbors for "${data.query_word}"</h3><ul>` +  //changed data.word to data.query_word
                     data.neighbors.map(n => `<li><strong>${n.word}</strong>: ${n.similarity.toFixed(3)}</li>`).join('') +
                     '</ul>';
 
-                // Fetch Embeddings Plot
                 fetch(`/embeddings_data`)
                     .then(response => {
                         if (!response.ok) {
